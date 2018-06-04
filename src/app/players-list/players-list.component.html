@@ -1,0 +1,17 @@
+<div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let player of players">
+      <div class="row">
+        <div class="col-md-5 player-photo" [ngStyle]="{'background-image': getImage(player.Name)}">
+
+        </div>
+        <div class="col-md-7 player-info">
+          <div><i class="fas fa-user icons"></i>Name: {{player.Name}}</div>
+          <div><i class="fas fa-university icons"></i>Club: {{player.Club}}</div>
+          <div><i class="fas fa-star icons"></i>Rating: {{player.Rating}}</div>
+        </div>
+      </div>
+
+    </li>
+  </ul>
+</div>

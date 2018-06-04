@@ -1,0 +1,16 @@
+.player-photo{
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 134px;
+}
+
+.player-info {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.player-info .icons {
+    margin:0 8px;
+    color:#2175EA;
+}

@@ -1,0 +1,28 @@
+<div>
+  <div class="row login-signup ">
+    <div class="col-md-6 image-section">
+
+    </div>
+    <div class="col-md-6 login-section">
+      <div class="login-container">
+        <h4>See what’s happening in the football world right now</h4>
+        <form #loginForm="ngForm" class="login-form">
+          <mat-form-field>
+            <input matInput [ngModel]="email" (focus)="submitMessage = 'empty'" name="email" placeholder="email">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="password" [ngModel]="password" (focus)="submitMessage = 'empty'" name="password" placeholder="password">
+          </mat-form-field>
+          <div class="button-group">
+            <button mat-raised-button color="primary" (click)="signIn(loginForm)">Login</button>
+            <button mat-raised-button color="primary" (click)="registerUser(loginForm)">Signup</button>
+          </div>
+          <div [ngClass]="{'invisible': submitMessage == 'empty'}"
+            class="login-errors">
+            <p class="validation-error" [ngClass]="{'account-created':submitMessage == 'Account created. Login to continue'}">{{submitMessage}}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div *ngIf="allPlayers.length === 0" class="valign-wrapper">
+  <div class="spinner"></div>
+</div>
+
+<div *ngIf="allPlayers.length > 0">
+  <div class="container search-box">
+    <form class="form">
+      <mat-form-field class="full-width">
+        <input type="text" placeholder="Search" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let player of filteredPlayers | async" [value]="player.Name" (click)="goToPlayer(player.Name)">
+            {{ player.Name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="container">
+    <app-players-list [players]="currentPageItems"></app-players-list>
+    <div class="list-group-item page-switch">
+      <app-pagination (goPage)="goToPage($event)" (goNext)="onNext()" (goPrev)="onPrev()" [pagesToShow]="5" [page]="page" [perPage]="limit"
+        [count]="total"></app-pagination>
+    </div>
+  </div>
+</div>
